@@ -19,7 +19,7 @@ Name: `Reporting.usp_SecureSalesReport`
 
 - Uses parameterized dynamic SQL via `sp_executesql`.  
 - Optional filters: `@TerritoryName`, `@SalesPersonName`, `@ProductCategory`, `@StartDate`, `@EndDate`.  
-- Implements **input validation** to reject unsafe patterns like `--`, `DROP`, and `EXEC`.  
+- Implements input validation to reject unsafe patterns like `--`, `DROP`, and `EXEC`.  
 - Logs all executions in `Reporting.ExecutionLog` with status and parameter values.  
 
 Example:
@@ -57,7 +57,7 @@ SELECT * FROM Reporting.vw_ExecutionSummary;
 
 
 
-5. Expected Results
+4. Expected Results
 Secure procedure: Executes correctly for valid inputs, rejects unsafe input, and logs status as Success or Rejected.
 Vulnerable procedure: Executes normally for valid input but is susceptible to SQL injection. Unsafe input may alter query results.
 Execution log: Captures all runs with procedure name, parameters, status, and timestamp.
